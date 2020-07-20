@@ -1,0 +1,17 @@
+appka na zal:
+- lista przewijana
+- operacje na API
+- Operacje na AsyncStorage
+- Routing, co najmniej 2 ekrany
+- Animacja
+- Wyświetlenie obrazka
+- Wyszukiwarka pokemonów
+
+
+
+npm install yarn -g		                                                zainstalować yarna (npm slabo dziala w react native)
+komendy z : 		            	                                    https://react-native-community.github.io/async-storage/docs/install
+instalujemy paczke async storage                                        yarn add @react-native-community/async-storage
+instalacja poda (dziala tylko na mac)                                   npx pod-install
+jeżeli wersja react-native jest poniżej 6 to instalujemy linkowanie     react-native link @react-native-community/async-storage
+komendy z :                                                             https://react-native-community.github.io/async-storage/docs/usage

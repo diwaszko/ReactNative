@@ -1,0 +1,21 @@
+https://github.com/kkotelczuk/react-native-politechnika/tree/lab1/PokeDex
+
+npx react-native init PokeDex		instalacja czystego projektu react-native
+
+git init				w katalogu gdzie zainstalowailismy react-native tworzymy nowe repozytorium gita
+
+npx react-native start
+react-native start			przed ta komenda przejsc do projektu w terminalu
+
+npx react-native run-android		w terminalu (UWAGA! w adroid studio musi być zamkniety emulator przed wpisaniem komendy!!)
+
+
+usuniecie pliku .flowconfig 		przestanie krzyczec, ze nie mamy typow
+usunięcie kodu z pliku app.js		const App: () => React$Node = () => {			zmiana na        const App = () => {
+                                    usuwamy zawartość returna funkcji const App = () => {       (zostawić znaki <> </>)
+                                    wyczyścić zawartość styli zmiennej - const styles = StyleSheet.create({
+
+stylowanie odbywa się na zasdzie flexboxa           flexboxfroggy.com       - dobra stronka do nauki flexa
+kliknięcie 2 x r    -    odswieza emulator
+ctr + m     -   wyskakują opcje (developera)
+znacznik   <View></View>         ZAWSZE MUSI BYC ZAMKNIETY !!!

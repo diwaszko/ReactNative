@@ -1,0 +1,13 @@
+dodatek który jest bardzo przydatny                                     https://www.npmjs.com/package/eslint-plugin-react-hooks
+instaluje sie go (NIE INSTALOWAC NPM-em!!!)                              yarn i eslint-plugin-react-hooks
+
+instalacja abortcontroller-polyfill                                     yarn add abortcontroller-polyfill 
+
+react navigation (do osbługi routingu) zainstalowac 3 paczki YARNEM
+na viedeo z zajec pod koniec pokazane jest ktore                        https://reactnavigation.org/docs/getting-started
+
+
+instalacja https://reactnavigation.org/docs/getting-started             yarn add @react-navigation/native
+                                                                        yarn add react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
+                                                                        yarn add @react-navigation/stack
+                                                                        yarn add @react-navigation/bottom-tabs

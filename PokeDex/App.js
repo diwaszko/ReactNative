@@ -6,81 +6,53 @@
  * @flow strict-local
  */
 
-import React, {useState, useEffect} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-  View,
-  Text,
-  StatusBar,
-  Platform,
-  FlatList,
-} from 'react-native';
+import * as React from 'react';
+import {Image} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import DetailsView from './Views/DetailsView';
+import HomeView from './Views/HomeView';
+import BerriesView from './Views/BerriesView';
 
-import {fetchPokemonsList} from './apiService';
 
-const App = () => {
-  const [data, setData] = useState([]);
-  const barStyle = Platform.OS === 'ios' ? 'default' : 'light-content';
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
-  useEffect(() => {
-    (async () => {
-      const response = await fetchPokemonsList();
-      setData(response.results);
-    })();
-  }, [])
+const HomeStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen name="Home" component={HomeView}/>
+    <Stack.Screen name="Details" component={DetailsView} />
+  </Stack.Navigator>
+);
+
+
+function App() {
   return (
-    <>
-      <StatusBar barStyle={barStyle} backgroundColor="purple"/>
-      <SafeAreaView style={styles.appContainer}>
-        <View style={styles.container}>
-          <FlatList
-            data={data}
-            renderItem={({item, index, separator}) => (
-              <TouchableOpacity 
-              style={styles.button}
-                onPress={() => console.log(item)}
-                key={Date.now() + index}>
-                <Text style={styles.text}>{item.name}</Text>
-              </TouchableOpacity>
-            )}
-          />
-        </View>
-      </SafeAreaView>
-    </>
-  );
-};
-
-const styles = StyleSheet.create({
-  appContainer: {
-    backgroundColor: 'white',
-    flex: 1,
-  },
-  container: {
-    backgroundColor: '#eee',
-    flex: 1,
-  },
-  text: {
-    fontSize: 20,
-    fontWeight: '100',
-    color: 'purple',
-  },
-  button: {
-    justifyContent: 'center',
-    padding: 8,
-    borderBottomColor: 'grey',
-    borderBottomWidth: 1,
-  }
-});
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={({route}) => ({
+          tabBarIcon: () => {
+            let imageUrl;
+            if (route.name === "Home") {
+              imageUrl = require('./images/Pika.png');
+            } else {
+              imageUrl = require('./images/Berries.png');
+            }
+            return <Image source={imageUrl} />;
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: 'tomato',
+          inactiveTintColor: 'gray',
+        }}
+      >
+        <Tab.Screen name="Home" component={HomeStack} />
+        <Tab.Screen name="Berries" component={BerriesView} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  )
+}
 
 export default App;
